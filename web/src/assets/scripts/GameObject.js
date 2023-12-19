@@ -46,9 +46,11 @@ const step = timestamp =>{
             obj.update();
         }
 
-        last_timestamp = timestamp;
-        requestAnimationFrame(step);
+        
+        //requestAnimationFrame(step); 内存泄漏
     }
+    last_timestamp = timestamp;
+    requestAnimationFrame(step);
 }
 
 requestAnimationFrame(step);
