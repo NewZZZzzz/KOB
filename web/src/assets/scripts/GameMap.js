@@ -127,10 +127,29 @@ export class GameMap extends GameObject {
         return true;
     }
 
+    check_valid(cell){ // 检测目标位置是否合法
+        for(const wall of this.walls){
+            if(wall.r === cell.r && wall.c === cell.c)
+                return false;
+        }
+
+        for(const snake of this.snakes){
+            let k = snake.cells.length;
+            if(!snake.check_tail_increasing()){
+                k--;
+            }
+            for(let i = 0; i < k; i++){
+                if(snake.cells[i].r === cell.r && snake.cells[i].c === cell.c)
+                    return false;
+            }
+        }
+
+        return true;
+    }
+
     next_step(){//进入下一回合
         for(const snake of this.snakes){
             snake.next_step();
-            console.log("next_step");
         }
     }
 
