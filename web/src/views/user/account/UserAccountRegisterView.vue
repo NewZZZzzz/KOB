@@ -57,9 +57,6 @@
             error_message.value = resp.error_message;
           }
         },
-        error(resp) {
-          console.log(resp);
-        }
       })
       }
 
