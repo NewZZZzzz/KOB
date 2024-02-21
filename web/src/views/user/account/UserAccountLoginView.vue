@@ -59,8 +59,8 @@
             success() {
               store.dispatch("getInfo",{
                 success(){
+                  console.log(store.state.user.photo);
                   router.push({name: 'home'});
-                  console.log(store.state.user);
                 },
               })
             },

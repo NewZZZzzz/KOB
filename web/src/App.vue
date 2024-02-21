@@ -29,36 +29,36 @@
     //     }
     //   })
 
-    //   $.ajax({
-    //     url: "http://localhost:3000/user/account/info",
-    //     type: "get",
-    //     headers: {
-    //       Authorization: "Bearer " + "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJkNTE3MWI5Mzk1MWQ0OGUzOGIyMzlmZmE0ZGViYjI0YiIsInN1YiI6IjEiLCJpc3MiOiJzZyIsImlhdCI6MTcwODQxODQ0OSwiZXhwIjoxNzA5NjI4MDQ5fQ.lcICJc8e_eV8s7x9u6stIYnY0bGn91IA8xjGmmRGjyQ"
+      // $.ajax({
+      //   url: "http://localhost:3000/user/account/info",
+      //   type: "get",
+      //   headers: {
+      //     Authorization: "Bearer " + "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJkNTE3MWI5Mzk1MWQ0OGUzOGIyMzlmZmE0ZGViYjI0YiIsInN1YiI6IjEiLCJpc3MiOiJzZyIsImlhdCI6MTcwODQxODQ0OSwiZXhwIjoxNzA5NjI4MDQ5fQ.lcICJc8e_eV8s7x9u6stIYnY0bGn91IA8xjGmmRGjyQ"
 
-    //     },
-    //     success(resp) {
-    //       console.log(resp);
-    //     },
-    //     error(resp) {
-    //       console.log(resp);
-    //     }
-    //   })
+      //   },
+      //   success(resp) {
+      //     console.log(resp);
+      //   },
+      //   error(resp) {
+      //     console.log(resp);
+      //   }
+      // })
 
-    //   $.ajax({
-    //     url: "http://localhost:3000/user/account/register",
-    //     type: "post",
-    //     data: {
-    //       username: "Newzbw",
-    //       password: "pzbw",
-    //       confirmedPassword: "pzbw"
-    //     },
-    //     success(resp) {
-    //       console.log(resp);
-    //     },
-    //     error(resp) {
-    //       console.log(resp);
-    //     }
-    //   })
+      // $.ajax({
+      //   url: "http://localhost:3000/user/account/register",
+      //   type: "post",
+      //   data: {
+      //     username: "Newzbw",
+      //     password: "pzbw",
+      //     confirmedPassword: "pzbw"
+      //   },
+      //   success(resp) {
+      //     console.log(resp);
+      //   },
+      //   error(resp) {
+      //     console.log(resp);
+      //   }
+      // })
     // }
 
   }
