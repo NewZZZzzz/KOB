@@ -31,8 +31,21 @@
                       <textarea  v-model ="botadd.description" class="form-control" id="add-bot-description" rows="3" placeholder="写点什么吧"></textarea>
                     </div>
                     <div class="mb-3">
-                      <label for="add-bot-code" class="form-label">bot代码</label>
-                      <textarea v-model ="botadd.content" class="form-control" id="add-bot-code" rows="7" placeholder="在这里编写代码"></textarea>
+                      <label for="add-bot-code" class="form-label"></label>
+                      <VAceEditor
+                                v-model:value="botadd.content"
+                                @init="editorInit"
+                                lang="c_cpp"
+                                theme="textmate"
+                                style="height: 300px" :options="{
+                                  enableBasicAutocompletion: true, //启用基本自动完成
+                                  enableSnippets: true, // 启用代码段
+                                  enableLiveAutocompletion: true, // 启用实时自动完成
+                                  fontSize: 18, //设置字号
+                                  tabSize: 4, // 标签大小
+                                  showPrintMargin: false, //去除编辑器里的竖线
+                                  highlightActiveLine: true,
+                              }" />
                     </div>
                   </div>
                   <div class="modal-footer">
@@ -77,8 +90,21 @@
                               <textarea  v-model ="bot.description" class="form-control" id="add-bot-description" rows="3" placeholder="写点什么吧"></textarea>
                             </div>
                             <div class="mb-3">
-                              <label for="add-bot-code" class="form-label">bot代码</label>
-                              <textarea v-model ="bot.content" class="form-control" id="add-bot-code" rows="7" placeholder="在这里编写代码"></textarea>
+                              <label for="add-bot-code" class="form-label"></label>
+                              <VAceEditor
+                                v-model:value="bot.content"
+                                @init="editorInit"
+                                lang="c_cpp"
+                                theme="textmate"
+                                style="height: 300px" :options="{
+                                  enableBasicAutocompletion: true, //启用基本自动完成
+                                  enableSnippets: true, // 启用代码段
+                                  enableLiveAutocompletion: true, // 启用实时自动完成
+                                  fontSize: 18, //设置字号
+                                  tabSize: 4, // 标签大小
+                                  showPrintMargin: false, //去除编辑器里的竖线
+                                  highlightActiveLine: true,
+                              }" />
                             </div>
                           </div>
                           <div class="modal-footer">
@@ -101,17 +127,30 @@
 </template>
 
 <script>
-// import ContentField from "../../../components/ContentField"
 import $ from 'jquery'
 import { useStore } from 'vuex'
 import { ref, reactive } from 'vue'
 import { Modal } from 'bootstrap/dist/js/bootstrap'
+import { VAceEditor } from 'vue3-ace-editor';
+import ace from 'ace-builds';
+import 'ace-builds/src-noconflict/mode-c_cpp';
+import 'ace-builds/src-noconflict/mode-json';
+import 'ace-builds/src-noconflict/theme-chrome';
+import 'ace-builds/src-noconflict/ext-language_tools';
 
 export default{
   components: {
-    //ContentField
-  },
+        VAceEditor,
+    },
+
   setup() {
+
+    ace.config.set(
+            "basePath",
+            "https://cdn.jsdelivr.net/npm/ace-builds@" +
+            require("ace-builds").version +
+            "/src-noconflict/")
+
     const store = useStore();
     let bots = ref("");
 
