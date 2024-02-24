@@ -21,6 +21,8 @@ export default{
     const store = useStore();
     const socketUrl = `ws://localhost:3000/websocket/${store.state.user.token}`;
 
+    store.commit("updateLoser", "none");
+
     let socket = null;
     onMounted(() => {
       store.commit("updateOpponent",{
@@ -44,8 +46,8 @@ export default{
           });
           setTimeout(() => {
             store.commit("updateStatus", "playing");
+            store.commit("updateGame", data.game);
           }, 2000);
-          store.commit("updateGame", data.game);
         } else if (data.event === "move") { 
           console.log(data);
           const game = store.state.pk.gameObject;
