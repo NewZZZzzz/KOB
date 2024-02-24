@@ -33,12 +33,14 @@ public class Game extends Thread {
             Bot botA,
             Integer idB,
             Bot botB
-    ) {
+    )
+    {
         this.rows = rows;
         this.cols = cols;
         this.inner_walls_count = inner_walls_count;
         this.g = new int[rows][cols];
-        Integer botIdA = -1, botIdB = -1;
+        Integer botIdA = -1;
+        Integer botIdB = -1;
         String botCodeA = "", botCodeB = "";
         if(botA != null) {
             botIdA = botA.getId();
@@ -50,7 +52,7 @@ public class Game extends Thread {
             botCodeB = botB.getContent();
         }
         playerA = new Player(idA, rows - 2, 1, new ArrayList<>(), botIdA, botCodeA);
-        playerB = new Player(idB, 1, cols - 2, new ArrayList<>(), botIdA, botCodeB);
+        playerB = new Player(idB, 1, cols - 2, new ArrayList<>(), botIdB, botCodeB);
     }
 
     public int[][] getG() {
