@@ -20,7 +20,7 @@ export class Snake extends GameObject{
         this.dc = [0, 1, 0, -1]; //四个方向列偏移量
 
         this.step = 0; //回合数
-        this.eps = 1e-2;// 允许的误差
+        this.eps = 1e-1;// 允许的误差
 
         //蛇眼朝向，ID：0初始朝上 ID：1初始朝下
         this.eye_direction = 0;

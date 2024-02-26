@@ -26,7 +26,7 @@ import java.util.concurrent.CopyOnWriteArraySet;
 @ServerEndpoint("/websocket/{token}")  // 注意不要以'/'结尾
 public class WebSocketServer {
     public static ConcurrentHashMap<Integer, WebSocketServer> users = new ConcurrentHashMap<>();
-    private static UserMapper userMapper;
+    public static UserMapper userMapper;
     public static RecordMapper recordMapper;
     public static BotMapper botMapper;
     public static RestTemplate restTemplate;
@@ -75,6 +75,7 @@ public class WebSocketServer {
     }
 
     public static void startGame(Integer aId, Integer aBotId, Integer bId, Integer bBotId) {
+
         User a = userMapper.selectById(aId);
         User b = userMapper.selectById(bId);
         Bot botA = botMapper.selectById(aBotId);
@@ -88,12 +89,14 @@ public class WebSocketServer {
                 b.getId(),
                 botB
         );
+
         game.createMap();
 
         if(users.get(a.getId()) != null)
             users.get(a.getId()).game = game;
         if(users.get(b.getId()) != null)
             users.get(b.getId()).game = game;
+
 
         game.start();
 
